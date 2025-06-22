@@ -6,7 +6,7 @@
 | Código de Estudiante | Nombre de Estudiante  | Carrera | Rol |
 |----------------------|-----------------------|---------|-----|
 | u202318323           | Matias Aliaga Aguirre | Ingenieria de software | Miembro |
-|                      |                       |                        |         |
+| u202311965           | Lorenzo Balicco       | Ingenieria de sistemas | Miembro |
 |                      |                       |                        |         |
 |                      |                       |                        |         |
 |                      |                       |                        |         |
