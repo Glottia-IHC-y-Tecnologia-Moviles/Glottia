@@ -453,3 +453,45 @@
 .btn:hover {
     opacity: 0.9;
 }
+
+/*Footer*/
+.footer-section {
+    background-color: #FF8B94;
+    color: #ffffff;
+    padding: 5px;
+    font-weight: bold;
+}
+
+.footer-section img{
+    border-radius: 50px;
+    margin-top: 10px;
+}
+
+.footer-container {
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-start;
+    margin-bottom: 10px;
+}
+
+.footer-column {
+    width: 10%;
+    margin-top: 30px;
+}
+.footer-column-img{
+    width: 10%;
+    margin-top: 10px;
+    cursor: pointer;
+}
+
+.footer-column h3 {
+    font-size: 1.2rem;
+    margin-bottom: 0px;
+    padding-bottom: 0px;
+    font-family:"Raleway", sans-serif ;
+
+}
+
+.footer-column ul {
+    list-style-type: none;
+}
