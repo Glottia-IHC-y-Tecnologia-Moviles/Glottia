@@ -7,7 +7,7 @@
 |----------------------|-----------------------|---------|-----|
 | u202318323           | Matias Aliaga Aguirre | Ingenieria de software | Miembro |
 | u202318731           | Tenorio Medina Piero  | Ingenieria de software | Miembro |
-|                      |                       |                        |         |
+| u202311965           | Lorenzo Balicco       | Ingeniria de sistemas  | Miembro |
 |                      |                       |                        |         |
 |                      |                       |                        |         |
 |                      |                       |                        |         |
