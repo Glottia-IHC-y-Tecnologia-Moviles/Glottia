@@ -6,7 +6,7 @@
 | Código de Estudiante | Nombre de Estudiante  | Carrera | Rol |
 |----------------------|-----------------------|---------|-----|
 | u202318323           | Matias Aliaga Aguirre | Ingenieria de software | Miembro |
-|                      |                       |                        |         |
+| u202318731           | Tenorio Medina Piero  | Ingenieria de software | Miembro |
 |                      |                       |                        |         |
 |                      |                       |                        |         |
 |                      |                       |                        |         |
