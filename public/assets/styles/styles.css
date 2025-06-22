@@ -183,3 +183,66 @@
     color:#ffffff;
     font-weight: bold;
 }
+
+/*Testimonios reales */
+
+.Testimonios-Seccion {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.Testimonios-Seccion h2{
+    text-align: center;
+    padding-bottom: 20px;
+    font-family:"Raleway", sans-serif;
+    font-weight: bold;
+    font-size: 55px;
+}
+
+.review-card {
+    width: 180px;
+    background-color: white;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    padding: 16px;
+    text-align: center;
+    font-family: sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    margin-left: 20px;
+}
+
+.user-image img {
+    width: 60px;
+    height: 60px;
+    background-color: #ddd;
+    border-radius: 50%;
+}
+
+.user-name {
+    font-size: 0.9rem;
+    font-weight: bold;
+    margin: 0;
+}
+
+.stars {
+    color: gold;
+    font-size: 1rem;
+}
+
+.review-text {
+    font-size: 0.75rem;
+    color: #555;
+    margin: 0;
+}
+
+.container-reviews{
+    display: flex;
+    gap: 16px;
+    overflow-x: auto;
+    padding: 1rem;
+    scroll-behavior: smooth;
+    justify-content: center;
+}
