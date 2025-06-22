@@ -17,6 +17,7 @@
 .topheader img{
     border-radius: 40px;
 }
+
 .menu-horizontal {
     list-style: none;
     display: flex;
@@ -90,4 +91,40 @@
 .Sign:hover {
     background-color: #379683;
     color: white;
+}
+
+/* Imagen de Presentacion*/
+.container-presentacion{
+    background-image: url("../images/Main.png");
+    background-size:cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 500px;
+    display: flex;
+    align-items: flex-end;
+    text-align: center;
+    justify-content: center;
+    padding-bottom: 75px;
+}
+
+.container-presentacion h1{
+    color: #ffffff;
+    font-family:"Raleway", sans-serif;
+    font-size: 48px;
+}
+
+.unetebtn{
+    background-color: #379683;
+    color:#ffffff;
+    border-style:none ;
+    margin-top: 10px;
+    border-radius: 20px;
+    padding: 20px;
+    font-size: 25px;
+    cursor: pointer;
+}
+
+.unetebtn:hover{
+    background-color: #FF8B94;
+    font-size: bold;
 }
