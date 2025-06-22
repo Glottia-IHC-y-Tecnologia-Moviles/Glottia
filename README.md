@@ -1,5 +1,9 @@
 # Glottia - IHC Y TECNOLOGIAS MOVILES
 
+## Descripción
+
+Glottia es una plataforma digital diseñada para facilitar la práctica oral de idiomas a través de encuentros conversacionales reales, tanto presenciales como virtuales. Su objetivo principal es ofrecer a las personas —especialmente estudiantes y hablantes que desean mejorar su fluidez— espacios accesibles, naturales y seguros donde puedan conversar en otros idiomas de manera constante.
+
 <hr> 
 
 ## Autores
@@ -53,3 +57,44 @@
 <hr>
 
 ## Principales Caracteristicas 
+
+### 1. Reuniones presenciales y virtuales
+-Eventos temáticos en parques, coworkings, universidades o en línea.
+-Permiten practicar idiomas de forma natural con otras personas.
+
+### 2. Búsqueda y filtrado de eventos
+-Búsqueda por: Idioma, Ubicación geográfica, Fecha y Nivel (básico, intermedio, avanzado)
+-Encuentra eventos que se adapten a tus preferencias e intereses.
+
+### 3. Gamificación
+-Sistema de logros, puntos y recompensas para usuarios activos.
+-Motiva la participación constante en eventos y reuniones.
+
+### 4. Emparejamiento por nivel e intereses
+Recomendaciones automáticas de reuniones y grupos según:
+-Idiomas preferidos.
+-Temas de interés (negocios, cultura, viajes, etc.).
+-Nivel de fluidez.
+
+### 5. Registro flexible
+-Opción de registro rápido con correo o redes sociales (Google, Facebook).
+-Posibilidad de ingresar como invitado para explorar la plataforma antes de registrarse.
+
+### 6. Perfil personalizado
+-Cada usuario puede configurar su perfil con idiomas que desea practicar y temas preferidos.
+-Visualización de eventos sugeridos en base a preferencias.
+
+### 7. Calendario interactivo
+-Visualización clara de los próximos eventos.
+-Marcar eventos como favoritos y recibir recordatorios.
+
+### 8. Visualización de testimonios y beneficios
+-Sección con opiniones reales de usuarios.
+-Información clara sobre lo que ofrece Glottia y cómo funciona.
+
+### 9. Creación de eventos
+-Los usuarios pueden crear sus propias reuniones como anfitriones.
+-Pueden definir modalidad, idioma, ubicación, fecha, límite de participantes, etc.
+
+
+<hr>
