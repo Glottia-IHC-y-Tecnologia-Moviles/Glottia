@@ -9,12 +9,12 @@ Glottia es una plataforma digital diseñada para facilitar la práctica oral de 
 ## Autores
 | Código de Estudiante | Nombre de Estudiante  | Carrera | Rol |
 |----------------------|-----------------------|---------|-----|
-| u202318323           | Matias Aliaga Aguirre | Ingenieria de software | Miembro |
-| u202318731           | Tenorio Medina Piero  | Ingenieria de software | Miembro |
-| u202311965           | Lorenzo Balicco       | Ingenieria de sistemas | Miembro |
-| u202317450           | Vaness Choy Robles    | Ingenieria de software | Miembro |
-| u20231c019           | Saúl Ortega Muñoz     | Ingenieria de software | Miembro |
-|                      |                       |                        |         |
+| u202318323           | Matias Aliaga Aguirre | Ingeniería de Software | Miembro |
+| u202318731           | Tenorio Medina Piero  | Ingeniería de Software | Miembro |
+| u202311965           | Lorenzo Balicco       | Ingeniería de Sistemas | Miembro |
+| u202317450           | Vaness Choy Robles    | Ingeniería de Software | Miembro |
+| u20231c019           | Saúl Ortega Muñoz     | Ingeniería de Software | Miembro |
+| u202218279           | Anyelina Rivera Rubio | Ingeniería de Sistemas | Miembro |
 |                      |                       |                        |         |
 |                      |                       |                        |         |
 
