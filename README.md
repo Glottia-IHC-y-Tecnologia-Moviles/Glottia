@@ -13,7 +13,7 @@ Glottia es una plataforma digital diseñada para facilitar la práctica oral de 
 | u202318731           | Tenorio Medina Piero  | Ingenieria de software | Miembro |
 | u202311965           | Lorenzo Balicco       | Ingenieria de sistemas | Miembro |
 | u202317450           | Vaness Choy Robles    | Ingenieria de software | Miembro |
-|                      |                       |                        |         |
+| u20231c019           | Saúl Ortega Muñoz     | Ingenieria de software | Miembro |
 |                      |                       |                        |         |
 |                      |                       |                        |         |
 |                      |                       |                        |         |
