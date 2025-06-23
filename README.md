@@ -15,7 +15,7 @@ Glottia es una plataforma digital diseñada para facilitar la práctica oral de 
 | u202317450           | Vaness Choy Robles    | Ingeniería de Software | Miembro |
 | u20231c019           | Saúl Ortega Muñoz     | Ingeniería de Software | Miembro |
 | u202218279           | Anyelina Rivera Rubio | Ingeniería de Sistemas | Miembro |
-|                      |                       |                        |         |
+| u202318726           | Katherine Naomi Meza  | Ingeniería de Sistemas | Miembro |
 |                      |                       |                        |         |
 
 <hr>
