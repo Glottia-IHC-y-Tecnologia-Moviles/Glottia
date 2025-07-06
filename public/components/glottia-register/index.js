@@ -9,15 +9,15 @@ class GlottiaRegister extends HTMLElement {
           font-family: "Segoe UI", sans-serif;
           background-color: #fdfdfd;
           display: block;
-          min-height: 100vh;
+          min-height: calc(100vh - 180px); /* Ajustar para header y footer */
+          padding: 2rem 0;
         }
         
-        /* Remover estilos del header ya que se usará el del CSS global */
         .registro-container {
-          max-width: 400px;
+          max-width: 450px;
           background-color: #fff;
           padding: 2rem;
-          margin: 2rem auto;
+          margin: 0 auto;
           box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
           border-radius: 10px;
           text-align: center;
@@ -36,6 +36,48 @@ class GlottiaRegister extends HTMLElement {
           margin-bottom: 1.5rem;
           color: #666;
           font-family: "Raleway", sans-serif;
+        }
+        
+        .progress-indicator {
+          display: flex;
+          justify-content: center;
+          margin-bottom: 2rem;
+          gap: 0.5rem;
+        }
+        
+        .progress-step {
+          width: 12px;
+          height: 12px;
+          border-radius: 50%;
+          background-color: #e2e8f0;
+          position: relative;
+        }
+        
+        .progress-step.active {
+          background-color: #667eea;
+        }
+        
+        .progress-step.completed {
+          background-color: #379683;
+        }
+        
+        .progress-step::after {
+          content: '';
+          position: absolute;
+          top: 50%;
+          left: 100%;
+          width: 20px;
+          height: 2px;
+          background-color: #e2e8f0;
+          transform: translateY(-50%);
+        }
+        
+        .progress-step:last-child::after {
+          display: none;
+        }
+        
+        .progress-step.completed::after {
+          background-color: #379683;
         }
         
         form {
@@ -183,8 +225,12 @@ class GlottiaRegister extends HTMLElement {
         
         /* Responsive */
         @media (max-width: 480px) {
+          :host {
+            padding: 1rem 0;
+          }
+          
           .registro-container {
-            margin: 1rem;
+            margin: 0 1rem;
             padding: 1.5rem;
           }
           
@@ -200,8 +246,16 @@ class GlottiaRegister extends HTMLElement {
       </style>
 
       <main class="registro-container">
-        <h2>Registro Rápido</h2>
-        <p class="descripcion">Crea tu cuenta y comienza a practicar idiomas de forma divertida y natural.</p>
+        <!-- Indicador de progreso -->
+        <div class="progress-indicator">
+          <div class="progress-step active"></div>
+          <div class="progress-step"></div>
+          <div class="progress-step"></div>
+        </div>
+        
+        <h2>Crear Cuenta</h2>
+        <p class="descripcion">Paso 1 de 3: Información básica para tu cuenta de Glottia.</p>
+        
         <form id="registroForm">
           <label for="nombres">Nombres *</label>
           <input type="text" id="nombres" name="nombres" placeholder="Tu nombre" required />
@@ -231,10 +285,10 @@ class GlottiaRegister extends HTMLElement {
 
           <div class="botones">
             <button type="button" class="btn-volver" id="btnVolver">Volver a Iniciar Sesión</button>
-            <button type="submit" class="btn-registro">Registrarse</button>
+            <button type="submit" class="btn-registro">Continuar</button>
           </div>
         </form>
-        <div id="mensajeConfirmacion" class="oculto">✅ ¡Cuenta creada exitosamente! 🎉</div>
+        <div id="mensajeConfirmacion" class="oculto">✅ ¡Información guardada! Continuando...</div>
       </main>
     `;
 
@@ -247,10 +301,12 @@ class GlottiaRegister extends HTMLElement {
       e.preventDefault();
       if (this.validateForm()) {
         this.showSuccessMessage();
+        // Guardar datos en localStorage para el siguiente paso
+        this.saveUserData();
         setTimeout(() => {
-          // Redirigir al login después de 2 segundos
-          window.location.href = "login.html";
-        }, 2000);
+          // Redirigir a preferencias
+          window.location.href = "preferencias-register.html";
+        }, 1500);
       }
     });
 
@@ -291,6 +347,18 @@ class GlottiaRegister extends HTMLElement {
     });
   }
 
+  saveUserData() {
+    const userData = {
+      nombres: this.shadowRoot.getElementById("nombres").value,
+      apellidos: this.shadowRoot.getElementById("apellidos").value,
+      email: this.shadowRoot.getElementById("email").value,
+      password: this.shadowRoot.getElementById("password").value
+    };
+    
+    localStorage.setItem('glottia_user_registration', JSON.stringify(userData));
+  }
+
+  // ...existing validation methods...
   validateForm() {
     let isValid = true;
     
@@ -380,10 +448,9 @@ class GlottiaRegister extends HTMLElement {
   }
 
   showSuccessMessage() {
-    const form = this.shadowRoot.getElementById("registroForm");
     const mensaje = this.shadowRoot.getElementById("mensajeConfirmacion");
+    mensaje.classList.remove("oculto");
     
-    form.reset();
     // Limpiar clases de validación
     this.shadowRoot.querySelectorAll("input").forEach(input => {
       input.classList.remove("input-error", "input-success");
@@ -391,13 +458,6 @@ class GlottiaRegister extends HTMLElement {
     this.shadowRoot.querySelectorAll(".error-message").forEach(error => {
       error.classList.add("oculto");
     });
-    
-    mensaje.classList.remove("oculto");
-    
-    // Ocultar mensaje después de mostrar
-    setTimeout(() => {
-      mensaje.classList.add("oculto");
-    }, 1800);
   }
 }
 
