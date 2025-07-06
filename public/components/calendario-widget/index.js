@@ -418,7 +418,7 @@ class CalendarioWidget extends HTMLElement {
               📊 <span id="eventCountText">Eventos del mes: 0</span>
             </div>
             
-            <button class="btn-evento" id="btnEvento">✨ Registra tu evento</button>
+            <button class="btn-evento" id="btnEvento" onclick="window.location.href='./create.html'">✨ Registra tu evento</button>
             
             <div class="selected-date-info" id="selectedDateInfo">
               <div>📅 <span id="selectedDateText"></span></div>
