@@ -50,7 +50,7 @@
 <section class="container-presentacion">
     <div class="info-presentacion">
         <h1>Conecta, Conversa y aprende con eventos linguísticos únicos</h1>
-        <button type="submit" class="unetebtn">Unete ahora</button>
+        <button type="submit" class="unetebtn" onclick="document.getElementById('Register-Section').scrollIntoView({ behavior: 'smooth' });">Unete ahora</button>
     </div>
 </section>
 
@@ -179,6 +179,29 @@
 
 </section>
 
+<button class="mostrar-ayuda" onclick="mostrarAyuda()">¿Necesitas ayuda?</button>
+
+<div id="ayudaOverlay" class="ayuda-overlay">
+    <section class="main-container">
+        <div class="ayuda-card">
+            <h2>¿Cómo podemos ayudarte?</h2>
+
+            <button class="btn-ayuda" onclick="mostrarMensaje('Funcionamiento de la app')">
+                ¿Cómo funciona la app?
+            </button>
+            <button class="btn-ayuda" onclick="mostrarMensaje('Beneficios de usar Glottia')">
+                Beneficios de Glottia
+            </button>
+            <button class="btn-ayuda" onclick="mostrarMensaje('Testimonios de usuarios')">
+                Testimonios
+            </button>
+            <button class="btn-volver" onclick="volver()">Atrás</button>
+
+            <div id="respuesta" class="respuesta"></div>
+        </div>
+    </section>
+</div>
+
 <section class="Register-Section" id="Register-Section">
     <div id="Registro">
         <div class="form-wrapper">
@@ -265,5 +288,7 @@
         </div>
     </div>
 </footer>
+
+<script src="./assets/scripts/main.js"></script>
 </body>
 </html>
