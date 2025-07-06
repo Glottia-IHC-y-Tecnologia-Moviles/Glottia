@@ -43,7 +43,7 @@ formReunion.addEventListener("submit", (event) => {
 
     // Si todo está bien
     event.preventDefault();
-    alert("Se creo la reuncion correctamente.");
+    alert("Se creo la reunión correctamente.");
     formReunion.reset();
     limpiarImagen();
 });
