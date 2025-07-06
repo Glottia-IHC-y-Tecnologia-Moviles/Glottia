@@ -54,3 +54,4 @@ document.addEventListener('DOMContentLoaded', function () {
         menuIcon.addEventListener('click', () => console.log('Menú toggled'));
     }
 });
+

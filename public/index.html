@@ -13,17 +13,17 @@
 
 
 <nav class="topheader">
-    <a href="" class="logo">
+    <a href="./index.html" class="logo">
         <img height="80" width="80" src="./assets/images/LogoBlanco.png" alt="" />
     </a>
     <ul class="menu-horizontal">
-        <li><a href=""> Eventos Próximos</a></li>
-        <li><a href=""> Nosotros </a></li>
+        <li><a href="#" onclick="window.location.href='./home.html'"> Eventos Próximos</a></li>
+        <li><a href="#" onclick="mostrarAyuda()"> Nosotros </a></li>
         <li>
             <a href=""> Acerca de </a>
             <ul class="menu-vertical">
-                <li><a href=""> ¿Cómo funciona? </a></li>
-                <li><a href=""> ¿Quiénes somos? </a></li>
+                <li><a href="#" onclick="mostrarAyuda()"> ¿Cómo funciona? </a></li>
+                <li><a href="" onclick="mostrarAyuda()"> ¿Quiénes somos? </a></li>
             </ul>
         </li>
         <li>
@@ -41,15 +41,15 @@
                 <li><a href=""> Preguntas </a></li>
             </ul>
         </li>
-        <li><button type="submit" class="Login">Iniciar Sesión</button></li>
-        <li><button type="submit" class="Sign">Crear cuenta</button></li>
+        <li><button type="submit" class="Login" onclick="window.location.href='./login.html'">Iniciar Sesión</button></li>
+        <li><button type="submit" class="Sign" onclick="window.location.href='./register.html'">Crear cuenta</button></li>
     </ul>
 </nav>
 
 <section class="container-presentacion">
     <div class="info-presentacion">
         <h1>Conecta, Conversa y aprende con eventos linguísticos únicos</h1>
-        <button type="submit" class="unetebtn" onclick="document.getElementById('Register-Section').scrollIntoView({ behavior: 'smooth' });">Unete ahora</button>
+        <button type="submit" class="unetebtn" onclick="window.location.href='./home.html'">Unete ahora</button>
     </div>
 </section>
 
@@ -68,7 +68,7 @@
                 <p>Descripcion breve: Conversacion interactiva sobre la fusion del ingles y español en la vida cotidiana</p>
             </div>
             <div class="boton-content">
-                <button type="submit" class="Vermas"> Ver mas</button>
+                <button type="submit" class="Vermas" onclick="window.location.href='./home.html'"> Ver mas</button>
             </div>
         </div>
 
@@ -83,7 +83,7 @@
                 <p>Descripcion breve: Exploraremos los acentos</p>
             </div>
             <div class="boton-content">
-                <button type="submit" class="Vermas"> Ver mas</button>
+                <button type="submit" class="Vermas" onclick="window.location.href='./home.html'"> Ver mas</button>
             </div>
         </div>
 
@@ -98,7 +98,7 @@
                 <p>Descripcion breve: Un espacio para reír, aprender y compartir experiencias al aprender un nuevo idioma.</p>
             </div>
             <div class="boton-content">
-                <button type="submit" class="Vermas"> Ver mas</button>
+                <button type="submit" class="Vermas" onclick="window.location.href='./home.html'"> Ver mas</button>
             </div>
         </div>
 
@@ -111,7 +111,7 @@
         <div class="Texto-Info">
             <p>Glottia es una plataforma de eventos que conecta a personas interesadas en lenguas, cultura y aprendizaje colaborativo. Participa en charlas, debates y talleres desde cualquier parte del mundo</p>
             <div class="boton-info">
-                <button type="submit" class="SaberMas">Saber más</button>
+                <button type="submit" class="SaberMas" onclick="mostrarAyuda()">Saber más</button>
             </div>
         </div>
         <img height="400" width="auto" src="./assets/images/Info.png" alt="" />

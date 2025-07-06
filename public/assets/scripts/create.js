@@ -46,6 +46,8 @@ formReunion.addEventListener("submit", (event) => {
     alert("Se creo la reunión correctamente.");
     formReunion.reset();
     limpiarImagen();
+
+    window.location.href = './home.html';
 });
 
 function limpiarImagen() {
