@@ -3,49 +3,54 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Glottia - Registro</title>
+    <title>Registro | Glottia</title>
     <!-- Incluir los estilos globales -->
     <link href="./assets/styles/styles.css" rel="stylesheet">
     <link href="./assets/styles/reset.css" rel="stylesheet" type="text/css">
+    <!-- Cargar el sistema de usuarios ANTES del componente -->
+    <script src="data/user.js"></script>
+    <script type="module" src="components/glottia-register/index.js"></script>
   </head>
-  <body>
-    <!-- Header usando los estilos de styles.css -->
+  <body class="register-page">
+    <!-- Header usando los estilos globales -->
     <nav class="topheader">
       <a href="index.html" class="logo">
         <img height="80" width="80" src="./assets/images/LogoBlanco.png" alt="Glottia Logo" />
       </a>
       <ul class="menu-horizontal">
-        <li><a href="index.html"> Eventos Próximos</a></li>
-        <li><a href="index.html#nosotros"> Nosotros </a></li>
+        <li><a href="index.html">Eventos Próximos</a></li>
+        <li><a href="index.html#nosotros">Nosotros</a></li>
         <li>
-          <a href="#"> Acerca de </a>
+          <a href="#">Acerca de</a>
           <ul class="menu-vertical">
-            <li><a href="#"> ¿Cómo funciona? </a></li>
-            <li><a href="#"> ¿Quiénes somos? </a></li>
+            <li><a href="#">¿Cómo funciona?</a></li>
+            <li><a href="#">¿Quiénes somos?</a></li>
           </ul>
         </li>
         <li>
-          <a href="#"> Membresías</a>
+          <a href="#">Membresías</a>
           <ul class="menu-vertical">
-            <li><a href="#"> Plan Smart </a></li>
-            <li><a href="#"> Plan Premium </a></li>
+            <li><a href="#">Plan Smart</a></li>
+            <li><a href="#">Plan Premium</a></li>
           </ul>
         </li>
         <li>
-          <a href="#"> Contáctanos</a>
+          <a href="#">Contáctanos</a>
           <ul class="menu-vertical">
-            <li><a href="#"> Soporte al Usuario </a></li>
-            <li><a href="#"> Contacta con nosotros </a></li>
-            <li><a href="#"> Preguntas </a></li>
+            <li><a href="#">Soporte al Usuario</a></li>
+            <li><a href="#">Contacta con nosotros</a></li>
+            <li><a href="#">Preguntas</a></li>
           </ul>
         </li>
       </ul>
     </nav>
 
-    <!-- Componente de registro -->
-    <glottia-register></glottia-register>
+    <!-- Contenido principal -->
+    <main>
+      <glottia-register></glottia-register>
+    </main>
 
-    <!-- Footer usando los estilos de styles.css -->
+    <!-- Footer usando los estilos globales -->
     <footer class="footer-section">
       <div class="footer-container">
         <a href="index.html" class="logo">
@@ -71,7 +76,5 @@
         </div>
       </div>
     </footer>
-
-    <script src="components/glottia-register/index.js" type="module"></script>
   </body>
 </html>

@@ -17,13 +17,28 @@ class GlottiaPreferencias extends HTMLElement {
         }
         
         .preferencias-container {
-          max-width: 700px;
+          max-width: 600px;
           background-color: #fff;
           padding: 2rem;
           margin: 0 auto;
           box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
           border-radius: 10px;
           text-align: center;
+        }
+        
+        .preferencias-container h2 {
+          margin-bottom: 0.5rem;
+          color: #333;
+          font-family: "Raleway", sans-serif;
+          font-size: 2rem;
+          font-weight: bold;
+        }
+        
+        .descripcion {
+          font-size: 0.95rem;
+          margin-bottom: 2rem;
+          color: #666;
+          font-family: "Raleway", sans-serif;
         }
         
         .progress-indicator {
@@ -68,44 +83,34 @@ class GlottiaPreferencias extends HTMLElement {
           background-color: #379683;
         }
         
-        h2 {
-          margin-bottom: 0.5rem;
-          color: #333;
-          font-family: "Raleway", sans-serif;
-          font-size: 2rem;
-          font-weight: bold;
-        }
-        
-        .descripcion {
-          font-size: 0.95rem;
-          margin-bottom: 2rem;
-          color: #666;
-          font-family: "Raleway", sans-serif;
-        }
-        
-        .form-section {
+        .preferencias-form {
           text-align: left;
+        }
+        
+        .seccion {
           margin-bottom: 2rem;
+          padding: 1.5rem;
+          border: 1px solid #e2e8f0;
+          border-radius: 8px;
+          background-color: #f8fafc;
         }
         
-        .form-section h3 {
-          color: #379683;
-          font-family: "Raleway", sans-serif;
-          font-size: 1.25rem;
-          margin-bottom: 1rem;
-          display: flex;
-          align-items: center;
-          gap: 0.5rem;
+        .seccion h3 {
+          margin: 0 0 1rem 0;
+          color: #2d3748;
+          font-size: 1.2rem;
+          font-weight: 600;
         }
         
-        .language-grid {
+        .idiomas-grid {
           display: grid;
           grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
           gap: 1rem;
-          margin-bottom: 1.5rem;
+          margin-top: 1rem;
         }
         
-        .language-card {
+        .idioma-card {
+          background: white;
           border: 2px solid #e2e8f0;
           border-radius: 8px;
           padding: 1rem;
@@ -114,167 +119,88 @@ class GlottiaPreferencias extends HTMLElement {
           text-align: center;
         }
         
-        .language-card:hover {
+        .idioma-card:hover {
           border-color: #667eea;
-          background-color: #f8fafc;
+          transform: translateY(-2px);
+          box-shadow: 0 4px 12px rgba(0,0,0,0.1);
         }
         
-        .language-card.selected {
+        .idioma-card.selected {
           border-color: #379683;
-          background-color: #f0fdfa;
+          background-color: #e6fffa;
         }
         
-        .language-flag {
+        .idioma-flag {
           font-size: 2rem;
           margin-bottom: 0.5rem;
+          display: block;
         }
         
-        .language-name {
+        .idioma-name {
           font-weight: 600;
-          color: #333;
+          color: #2d3748;
           margin-bottom: 0.25rem;
         }
         
-        .language-level {
-          font-size: 0.875rem;
-          color: #666;
+        .idioma-level {
+          font-size: 0.85rem;
+          color: #718096;
         }
         
-        .level-grid {
+        .niveles-grid {
           display: grid;
-          grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-          gap: 0.75rem;
-          margin-bottom: 1.5rem;
+          grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+          gap: 0.5rem;
+          margin-top: 1rem;
         }
         
-        .level-option {
+        .nivel-btn {
+          background: white;
           border: 2px solid #e2e8f0;
-          border-radius: 8px;
+          border-radius: 6px;
           padding: 0.75rem;
           cursor: pointer;
           transition: all 0.3s ease;
           text-align: center;
+          font-weight: 500;
         }
         
-        .level-option:hover {
+        .nivel-btn:hover {
           border-color: #667eea;
-          background-color: #f8fafc;
         }
         
-        .level-option.selected {
+        .nivel-btn.selected {
           border-color: #379683;
-          background-color: #f0fdfa;
+          background-color: #379683;
+          color: white;
         }
         
-        .level-title {
-          font-weight: 600;
-          color: #333;
-          margin-bottom: 0.25rem;
-        }
-        
-        .level-desc {
-          font-size: 0.75rem;
-          color: #666;
-        }
-        
-        .interest-grid {
+        .intereses-grid {
           display: grid;
-          grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+          grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
           gap: 0.75rem;
-          margin-bottom: 1.5rem;
+          margin-top: 1rem;
         }
         
-        .interest-tag {
+        .interes-tag {
+          background: white;
           border: 2px solid #e2e8f0;
           border-radius: 20px;
           padding: 0.5rem 1rem;
           cursor: pointer;
           transition: all 0.3s ease;
           text-align: center;
-          font-size: 0.875rem;
+          font-size: 0.9rem;
         }
         
-        .interest-tag:hover {
-          border-color: #667eea;
-          background-color: #f8fafc;
-        }
-        
-        .interest-tag.selected {
-          border-color: #379683;
-          background-color: #f0fdfa;
-          color: #379683;
-          font-weight: 600;
-        }
-        
-        .time-grid {
-          display: grid;
-          grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-          gap: 0.75rem;
-          margin-bottom: 1.5rem;
-        }
-        
-        .time-option {
-          border: 2px solid #e2e8f0;
-          border-radius: 8px;
-          padding: 0.75rem 0.5rem;
-          cursor: pointer;
-          transition: all 0.3s ease;
-          text-align: center;
-        }
-        
-        .time-option:hover {
-          border-color: #667eea;
-          background-color: #f8fafc;
-        }
-        
-        .time-option.selected {
-          border-color: #379683;
-          background-color: #f0fdfa;
-        }
-        
-        .time-number {
-          font-weight: bold;
-          color: #333;
-          font-size: 1.1rem;
-        }
-        
-        .time-label {
-          font-size: 0.75rem;
-          color: #666;
-        }
-        
-        .checkbox-option {
-          display: flex;
-          align-items: center;
-          gap: 0.75rem;
-          padding: 0.75rem;
-          border: 1px solid #e2e8f0;
-          border-radius: 8px;
-          margin-bottom: 0.5rem;
-          cursor: pointer;
-          transition: all 0.3s ease;
-        }
-        
-        .checkbox-option:hover {
-          background-color: #f8fafc;
+        .interes-tag:hover {
           border-color: #667eea;
         }
         
-        .checkbox-option input[type="checkbox"] {
-          width: 18px;
-          height: 18px;
-          accent-color: #379683;
-        }
-        
-        .checkbox-label {
-          flex: 1;
-          color: #333;
-          font-weight: 500;
-        }
-        
-        .checkbox-desc {
-          font-size: 0.875rem;
-          color: #666;
+        .interes-tag.selected {
+          border-color: #667eea;
+          background-color: #667eea;
+          color: white;
         }
         
         .botones {
@@ -328,401 +254,274 @@ class GlottiaPreferencias extends HTMLElement {
           cursor: not-allowed;
         }
         
-        /* Responsive */
-        @media (max-width: 768px) {
-          .language-grid,
-          .level-grid,
-          .interest-grid,
-          .time-grid {
-            grid-template-columns: 1fr;
+        .mensaje {
+          margin-top: 1.5rem;
+          padding: 1rem;
+          border-radius: 6px;
+          font-weight: 500;
+          font-family: "Raleway", sans-serif;
+          animation: slideIn 0.5s ease-out;
+        }
+        
+        .mensaje.success {
+          background-color: #e6ffee;
+          color: #137c4c;
+        }
+        
+        .mensaje.error {
+          background-color: #fee;
+          color: #c53030;
+        }
+        
+        .oculto {
+          display: none;
+        }
+        
+        @keyframes slideIn {
+          from {
+            opacity: 0;
+            transform: translateY(-10px);
+          }
+          to {
+            opacity: 1;
+            transform: translateY(0);
           }
         }
         
-        @media (max-width: 480px) {
-          :host {
-            padding: 1rem 0;
-          }
-          
+        @media (max-width: 768px) {
           .preferencias-container {
             margin: 0 1rem;
             padding: 1.5rem;
           }
           
-          .botones {
-            flex-direction: column;
-            gap: 0.8rem;
+          .idiomas-grid {
+            grid-template-columns: 1fr;
           }
           
-          h2 {
-            font-size: 1.5rem;
+          .botones {
+            flex-direction: column;
           }
         }
       </style>
 
       <main class="preferencias-container">
-        <!-- Indicador de progreso -->
         <div class="progress-indicator">
           <div class="progress-step completed"></div>
           <div class="progress-step active"></div>
           <div class="progress-step"></div>
         </div>
         
-        <h2>Configurar Preferencias</h2>
-        <p class="descripcion">Paso 2 de 3: Personaliza tu experiencia de aprendizaje en Glottia.</p>
+        <h2>Preferencias de Idiomas</h2>
+        <p class="descripcion">Paso 2 de 3: Cuéntanos qué idiomas te interesan y tu nivel actual.</p>
         
-        <!-- Idioma nativo -->
-        <div class="form-section">
-          <h3>🌍 ¿Cuál es tu idioma nativo?</h3>
-          <div class="language-grid" id="nativeLanguages">
-            <div class="language-card" data-lang="es">
-              <div class="language-flag">🇪🇸</div>
-              <div class="language-name">Español</div>
-              <div class="language-level">Nativo</div>
-            </div>
-            <div class="language-card" data-lang="en">
-              <div class="language-flag">🇺🇸</div>
-              <div class="language-name">Inglés</div>
-              <div class="language-level">Nativo</div>
-            </div>
-            <div class="language-card" data-lang="fr">
-              <div class="language-flag">🇫🇷</div>
-              <div class="language-name">Francés</div>
-              <div class="language-level">Nativo</div>
-            </div>
-            <div class="language-card" data-lang="de">
-              <div class="language-flag">🇩🇪</div>
-              <div class="language-name">Alemán</div>
-              <div class="language-level">Nativo</div>
-            </div>
-            <div class="language-card" data-lang="it">
-              <div class="language-flag">🇮🇹</div>
-              <div class="language-name">Italiano</div>
-              <div class="language-level">Nativo</div>
-            </div>
-            <div class="language-card" data-lang="pt">
-              <div class="language-flag">🇧🇷</div>
-              <div class="language-name">Portugués</div>
-              <div class="language-level">Nativo</div>
+        <form class="preferencias-form" id="preferenciasForm">
+          <div class="seccion">
+            <h3>🎯 ¿Qué idiomas quieres practicar?</h3>
+            <div class="idiomas-grid" id="idiomasGrid">
+              <!-- Se generará dinámicamente -->
             </div>
           </div>
-        </div>
+          
+          <div class="seccion">
+            <h3>📊 ¿Cuál es tu nivel actual?</h3>
+            <div class="niveles-grid" id="nivelesGrid">
+              <!-- Se generará dinámicamente -->
+            </div>
+          </div>
+          
+          <div class="seccion">
+            <h3>❤️ ¿Qué temas te interesan?</h3>
+            <div class="intereses-grid" id="interesesGrid">
+              <!-- Se generará dinámicamente -->
+            </div>
+          </div>
 
-        <!-- Idiomas a aprender -->
-        <div class="form-section">
-          <h3>📚 ¿Qué idiomas te gustaría practicar?</h3>
-          <div class="language-grid" id="learningLanguages">
-            <div class="language-card" data-lang="en">
-              <div class="language-flag">🇺🇸</div>
-              <div class="language-name">Inglés</div>
-              <div class="language-level">Practicar</div>
-            </div>
-            <div class="language-card" data-lang="fr">
-              <div class="language-flag">🇫🇷</div>
-              <div class="language-name">Francés</div>
-              <div class="language-level">Practicar</div>
-            </div>
-            <div class="language-card" data-lang="de">
-              <div class="language-flag">🇩🇪</div>
-              <div class="language-name">Alemán</div>
-              <div class="language-level">Practicar</div>
-            </div>
-            <div class="language-card" data-lang="it">
-              <div class="language-flag">🇮🇹</div>
-              <div class="language-name">Italiano</div>
-              <div class="language-level">Practicar</div>
-            </div>
-            <div class="language-card" data-lang="pt">
-              <div class="language-flag">🇧🇷</div>
-              <div class="language-name">Portugués</div>
-              <div class="language-level">Practicar</div>
-            </div>
-            <div class="language-card" data-lang="ja">
-              <div class="language-flag">🇯🇵</div>
-              <div class="language-name">Japonés</div>
-              <div class="language-level">Practicar</div>
-            </div>
+          <div class="botones">
+            <button type="button" class="btn-volver" id="btnVolver">Volver</button>
+            <button type="submit" class="btn-continuar" id="btnContinuar">Continuar</button>
           </div>
-        </div>
-
-        <!-- Nivel de competencia -->
-        <div class="form-section">
-          <h3>📊 ¿Cuál es tu nivel actual?</h3>
-          <div class="level-grid" id="proficiencyLevel">
-            <div class="level-option" data-level="beginner">
-              <div class="level-title">Principiante</div>
-              <div class="level-desc">Conozco palabras básicas</div>
-            </div>
-            <div class="level-option" data-level="elementary">
-              <div class="level-title">Elemental</div>
-              <div class="level-desc">Puedo formar frases simples</div>
-            </div>
-            <div class="level-option" data-level="intermediate">
-              <div class="level-title">Intermedio</div>
-              <div class="level-desc">Converso con dificultades</div>
-            </div>
-            <div class="level-option" data-level="advanced">
-              <div class="level-title">Avanzado</div>
-              <div class="level-desc">Converso con fluidez</div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Intereses -->
-        <div class="form-section">
-          <h3>🎯 ¿Qué temas te interesan?</h3>
-          <div class="interest-grid" id="interests">
-            <div class="interest-tag" data-interest="travel">✈️ Viajes</div>
-            <div class="interest-tag" data-interest="business">💼 Negocios</div>
-            <div class="interest-tag" data-interest="culture">🎭 Cultura</div>
-            <div class="interest-tag" data-interest="food">🍽️ Gastronomía</div>
-            <div class="interest-tag" data-interest="sports">⚽ Deportes</div>
-            <div class="interest-tag" data-interest="technology">💻 Tecnología</div>
-            <div class="interest-tag" data-interest="music">🎵 Música</div>
-            <div class="interest-tag" data-interest="movies">🎬 Películas</div>
-            <div class="interest-tag" data-interest="books">📚 Libros</div>
-            <div class="interest-tag" data-interest="science">🔬 Ciencia</div>
-          </div>
-        </div>
-
-        <!-- Tiempo disponible -->
-        <div class="form-section">
-          <h3>⏰ ¿Cuánto tiempo puedes dedicar por semana?</h3>
-          <div class="time-grid" id="timeCommitment">
-            <div class="time-option" data-time="1-2">
-              <div class="time-number">1-2</div>
-              <div class="time-label">horas</div>
-            </div>
-            <div class="time-option" data-time="3-5">
-              <div class="time-number">3-5</div>
-              <div class="time-label">horas</div>
-            </div>
-            <div class="time-option" data-time="6-10">
-              <div class="time-number">6-10</div>
-              <div class="time-label">horas</div>
-            </div>
-            <div class="time-option" data-time="10+">
-              <div class="time-number">10+</div>
-              <div class="time-label">horas</div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Preferencias de notificación -->
-        <div class="form-section">
-          <h3>🔔 Preferencias de notificación</h3>
-          <div class="checkbox-option">
-            <input type="checkbox" id="emailNotif" checked>
-            <div>
-              <div class="checkbox-label">Notificaciones por email</div>
-              <div class="checkbox-desc">Recibe recordatorios de eventos y nuevos grupos</div>
-            </div>
-          </div>
-          <div class="checkbox-option">
-            <input type="checkbox" id="weeklyDigest" checked>
-            <div>
-              <div class="checkbox-label">Resumen semanal</div>
-              <div class="checkbox-desc">Un email con tu progreso y eventos recomendados</div>
-            </div>
-          </div>
-          <div class="checkbox-option">
-            <input type="checkbox" id="eventReminders">
-            <div>
-              <div class="checkbox-label">Recordatorios de eventos</div>
-              <div class="checkbox-desc">Te avisamos 30 minutos antes de cada evento</div>
-            </div>
-          </div>
-        </div>
-
-        <div class="botones">
-          <button type="button" class="btn-volver" id="btnVolver">Atrás</button>
-          <button type="button" class="btn-continuar" id="btnContinuar" disabled>Finalizar Registro</button>
-        </div>
+        </form>
+        
+        <div id="mensaje" class="mensaje oculto"></div>
       </main>
     `;
 
-    this.preferences = {
-      nativeLanguage: null,
-      learningLanguages: [],
-      proficiencyLevel: null,
-      interests: [],
-      timeCommitment: null,
-      notifications: {
-        email: true,
-        weeklyDigest: true,
-        eventReminders: false
-      }
-    };
-
+    this.setupData();
     this.setupEventListeners();
-    this.loadUserData();
+  }
+
+  setupData() {
+    this.idiomas = [
+      { id: 'en', name: 'Inglés', flag: '🇺🇸' },
+      { id: 'fr', name: 'Francés', flag: '🇫🇷' },
+      { id: 'de', name: 'Alemán', flag: '🇩🇪' },
+      { id: 'it', name: 'Italiano', flag: '🇮🇹' },
+      { id: 'pt', name: 'Portugués', flag: '🇧🇷' },
+      { id: 'ja', name: 'Japonés', flag: '🇯🇵' },
+      { id: 'ko', name: 'Coreano', flag: '🇰🇷' },
+      { id: 'zh', name: 'Chino', flag: '🇨🇳' },
+      { id: 'ru', name: 'Ruso', flag: '🇷🇺' },
+      { id: 'ar', name: 'Árabe', flag: '🇸🇦' }
+    ];
+
+    this.niveles = [
+      { id: 'principiante', name: 'Principiante', desc: 'A1-A2' },
+      { id: 'intermedio', name: 'Intermedio', desc: 'B1-B2' },
+      { id: 'avanzado', name: 'Avanzado', desc: 'C1-C2' },
+      { id: 'nativo', name: 'Nativo', desc: 'Fluido' }
+    ];
+
+    this.intereses = [
+      'Viajes', 'Cultura', 'Negocios', 'Tecnología', 'Arte', 'Música',
+      'Deportes', 'Cocina', 'Literatura', 'Cine', 'Historia', 'Ciencia'
+    ];
+
+    this.selectedIdiomas = new Set();
+    this.selectedNivel = null;
+    this.selectedIntereses = new Set();
+
+    this.renderIdiomas();
+    this.renderNiveles();
+    this.renderIntereses();
+  }
+
+  renderIdiomas() {
+    const container = this.shadowRoot.getElementById('idiomasGrid');
+    container.innerHTML = this.idiomas.map(idioma => `
+      <div class="idioma-card" data-idioma="${idioma.id}">
+        <span class="idioma-flag">${idioma.flag}</span>
+        <div class="idioma-name">${idioma.name}</div>
+      </div>
+    `).join('');
+  }
+
+  renderNiveles() {
+    const container = this.shadowRoot.getElementById('nivelesGrid');
+    container.innerHTML = this.niveles.map(nivel => `
+      <div class="nivel-btn" data-nivel="${nivel.id}">
+        <div>${nivel.name}</div>
+        <div class="idioma-level">${nivel.desc}</div>
+      </div>
+    `).join('');
+  }
+
+  renderIntereses() {
+    const container = this.shadowRoot.getElementById('interesesGrid');
+    container.innerHTML = this.intereses.map(interes => `
+      <div class="interes-tag" data-interes="${interes}">
+        ${interes}
+      </div>
+    `).join('');
   }
 
   setupEventListeners() {
-    // Idioma nativo (solo uno)
-    this.shadowRoot.getElementById("nativeLanguages").addEventListener("click", (e) => {
-      const card = e.target.closest(".language-card");
-      if (card) {
-        // Remover selección anterior
-        this.shadowRoot.querySelectorAll("#nativeLanguages .language-card").forEach(c => 
-          c.classList.remove("selected"));
-        // Seleccionar nueva
-        card.classList.add("selected");
-        this.preferences.nativeLanguage = card.dataset.lang;
-        this.validateForm();
-      }
-    });
-
-    // Idiomas a aprender (múltiple)
-    this.shadowRoot.getElementById("learningLanguages").addEventListener("click", (e) => {
-      const card = e.target.closest(".language-card");
-      if (card) {
-        card.classList.toggle("selected");
-        const lang = card.dataset.lang;
+    // Selección de idiomas
+    this.shadowRoot.querySelectorAll('.idioma-card').forEach(card => {
+      card.addEventListener('click', () => {
+        const idiomaId = card.dataset.idioma;
         
-        if (card.classList.contains("selected")) {
-          if (!this.preferences.learningLanguages.includes(lang)) {
-            this.preferences.learningLanguages.push(lang);
-          }
+        if (this.selectedIdiomas.has(idiomaId)) {
+          this.selectedIdiomas.delete(idiomaId);
+          card.classList.remove('selected');
         } else {
-          this.preferences.learningLanguages = this.preferences.learningLanguages.filter(l => l !== lang);
+          this.selectedIdiomas.add(idiomaId);
+          card.classList.add('selected');
         }
-        this.validateForm();
-      }
-    });
-
-    // Nivel de competencia
-    this.shadowRoot.getElementById("proficiencyLevel").addEventListener("click", (e) => {
-      const option = e.target.closest(".level-option");
-      if (option) {
-        this.shadowRoot.querySelectorAll("#proficiencyLevel .level-option").forEach(o => 
-          o.classList.remove("selected"));
-        option.classList.add("selected");
-        this.preferences.proficiencyLevel = option.dataset.level;
-        this.validateForm();
-      }
-    });
-
-    // Intereses (múltiple)
-    this.shadowRoot.getElementById("interests").addEventListener("click", (e) => {
-      const tag = e.target.closest(".interest-tag");
-      if (tag) {
-        tag.classList.toggle("selected");
-        const interest = tag.dataset.interest;
         
-        if (tag.classList.contains("selected")) {
-          if (!this.preferences.interests.includes(interest)) {
-            this.preferences.interests.push(interest);
-          }
+        this.updateContinueButton();
+      });
+    });
+
+    // Selección de nivel
+    this.shadowRoot.querySelectorAll('.nivel-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        // Remover selección previa
+        this.shadowRoot.querySelectorAll('.nivel-btn').forEach(b => b.classList.remove('selected'));
+        
+        // Seleccionar nuevo
+        btn.classList.add('selected');
+        this.selectedNivel = btn.dataset.nivel;
+        
+        this.updateContinueButton();
+      });
+    });
+
+    // Selección de intereses
+    this.shadowRoot.querySelectorAll('.interes-tag').forEach(tag => {
+      tag.addEventListener('click', () => {
+        const interes = tag.dataset.interes;
+        
+        if (this.selectedIntereses.has(interes)) {
+          this.selectedIntereses.delete(interes);
+          tag.classList.remove('selected');
         } else {
-          this.preferences.interests = this.preferences.interests.filter(i => i !== interest);
+          this.selectedIntereses.add(interes);
+          tag.classList.add('selected');
         }
-        this.validateForm();
-      }
-    });
-
-    // Tiempo disponible
-    this.shadowRoot.getElementById("timeCommitment").addEventListener("click", (e) => {
-      const option = e.target.closest(".time-option");
-      if (option) {
-        this.shadowRoot.querySelectorAll("#timeCommitment .time-option").forEach(o => 
-          o.classList.remove("selected"));
-        option.classList.add("selected");
-        this.preferences.timeCommitment = option.dataset.time;
-        this.validateForm();
-      }
-    });
-
-    // Checkboxes de notificaciones
-    this.shadowRoot.getElementById("emailNotif").addEventListener("change", (e) => {
-      this.preferences.notifications.email = e.target.checked;
-    });
-
-    this.shadowRoot.getElementById("weeklyDigest").addEventListener("change", (e) => {
-      this.preferences.notifications.weeklyDigest = e.target.checked;
-    });
-
-    this.shadowRoot.getElementById("eventReminders").addEventListener("change", (e) => {
-      this.preferences.notifications.eventReminders = e.target.checked;
+        
+        this.updateContinueButton();
+      });
     });
 
     // Botón volver
-    this.shadowRoot.getElementById("btnVolver").addEventListener("click", () => {
-      window.location.href = "register.html";
+    this.shadowRoot.getElementById('btnVolver').addEventListener('click', () => {
+      window.location.href = 'register.html';
     });
 
-    // Botón continuar
-    this.shadowRoot.getElementById("btnContinuar").addEventListener("click", () => {
-      this.savePreferences();
-      this.completeRegistration();
+    // Formulario
+    this.shadowRoot.getElementById('preferenciasForm').addEventListener('submit', (e) => {
+      e.preventDefault();
+      this.processPreferencias();
     });
   }
 
-  validateForm() {
-    const isValid = 
-      this.preferences.nativeLanguage && 
-      this.preferences.learningLanguages.length > 0 && 
-      this.preferences.proficiencyLevel && 
-      this.preferences.interests.length > 0 && 
-      this.preferences.timeCommitment;
-
-    const btnContinuar = this.shadowRoot.getElementById("btnContinuar");
+  updateContinueButton() {
+    const btnContinuar = this.shadowRoot.getElementById('btnContinuar');
+    const isValid = this.selectedIdiomas.size > 0 && 
+                   this.selectedNivel && 
+                   this.selectedIntereses.size > 0;
+    
     btnContinuar.disabled = !isValid;
   }
 
-  loadUserData() {
-    const userData = localStorage.getItem('glottia_user_registration');
-    if (userData) {
-      const data = JSON.parse(userData);
-      console.log('Datos del usuario:', data);
+  async processPreferencias() {
+    const btnContinuar = this.shadowRoot.getElementById('btnContinuar');
+    const mensaje = this.shadowRoot.getElementById('mensaje');
+    
+    try {
+      btnContinuar.disabled = true;
+      btnContinuar.textContent = 'Procesando...';
+      
+      // Obtener datos del primer paso
+      const userData = JSON.parse(localStorage.getItem('glottia_temp_registration') || '{}');
+      
+      // Agregar preferencias
+      userData.preferencias = {
+        idiomas: Array.from(this.selectedIdiomas),
+        nivel: this.selectedNivel,
+        intereses: Array.from(this.selectedIntereses)
+      };
+      
+      // Guardar datos actualizados
+      localStorage.setItem('glottia_temp_registration', JSON.stringify(userData));
+      
+      // Mostrar mensaje de éxito
+      mensaje.textContent = '✅ ¡Preferencias guardadas! Continuando al último paso...';
+      mensaje.className = 'mensaje success';
+      mensaje.classList.remove('oculto');
+      
+      setTimeout(() => {
+        window.location.href = 'home.html';
+      }, 1500);
+      
+    } catch (error) {
+      mensaje.textContent = 'Error al guardar preferencias. Inténtalo de nuevo.';
+      mensaje.className = 'mensaje error';
+      mensaje.classList.remove('oculto');
+      
+      btnContinuar.disabled = false;
+      btnContinuar.textContent = 'Continuar';
     }
-  }
-
-  savePreferences() {
-    const userData = JSON.parse(localStorage.getItem('glottia_user_registration') || '{}');
-    userData.preferences = this.preferences;
-    localStorage.setItem('glottia_user_registration', JSON.stringify(userData));
-    
-    console.log('Preferencias guardadas:', this.preferences);
-  }
-
-  completeRegistration() {
-    // Mostrar mensaje de éxito
-    const originalContent = this.shadowRoot.querySelector('.preferencias-container').innerHTML;
-    
-    this.shadowRoot.querySelector('.preferencias-container').innerHTML = `
-      <div style="text-align: center; padding: 3rem 1rem;">
-        <div style="font-size: 4rem; margin-bottom: 1rem;">🎉</div>
-        <h2 style="color: #379683; margin-bottom: 1rem;">¡Registro Completado!</h2>
-        <p style="color: #666; font-size: 1.1rem; margin-bottom: 2rem;">
-          Bienvenido a Glottia. Tu perfil ha sido configurado exitosamente.
-        </p>
-        <div style="background: #f0fdfa; padding: 1rem; border-radius: 8px; margin-bottom: 2rem;">
-          <p style="color: #379683; font-weight: 600;">
-            🌟 Ya puedes empezar a practicar idiomas con hablantes nativos
-          </p>
-        </div>
-        <div style="color: #666; font-size: 0.9rem;">
-          Redirigiendo al inicio de sesión en <span id="countdown">3</span> segundos...
-        </div>
-      </div>
-    `;
-
-    // Countdown
-    let seconds = 3;
-    const countdown = this.shadowRoot.getElementById('countdown');
-    const interval = setInterval(() => {
-      seconds--;
-      countdown.textContent = seconds;
-      if (seconds <= 0) {
-        clearInterval(interval);
-      }
-    }, 1000);
-    
-    // Limpiar datos del localStorage y redirigir
-    setTimeout(() => {
-      localStorage.removeItem('glottia_user_registration');
-      window.location.href = "login.html";
-    }, 3000);
   }
 }
 

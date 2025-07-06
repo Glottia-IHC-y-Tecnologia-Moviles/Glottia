@@ -5,11 +5,12 @@ class GlottiaRegister extends HTMLElement {
 
     this.shadowRoot.innerHTML = `
       <style>
+        /* ...tus estilos existentes... */
         :host {
           font-family: "Segoe UI", sans-serif;
           background-color: #fdfdfd;
           display: block;
-          min-height: calc(100vh - 180px); /* Ajustar para header y footer */
+          min-height: calc(100vh - 180px);
           padding: 2rem 0;
         }
         
@@ -155,15 +156,28 @@ class GlottiaRegister extends HTMLElement {
           background-color: #2a6b5c;
         }
         
-        #mensajeConfirmacion {
+        .btn-registro:disabled {
+          background-color: #cbd5e1;
+          cursor: not-allowed;
+        }
+        
+        #mensajeConfirmacion, #mensajeError {
           margin-top: 1.5rem;
-          background-color: #e6ffee;
-          color: #137c4c;
           padding: 1rem;
           border-radius: 6px;
           font-weight: 500;
           font-family: "Raleway", sans-serif;
           animation: slideIn 0.5s ease-out;
+        }
+        
+        #mensajeConfirmacion {
+          background-color: #e6ffee;
+          color: #137c4c;
+        }
+        
+        #mensajeError {
+          background-color: #fee;
+          color: #c53030;
         }
         
         @keyframes slideIn {
@@ -205,7 +219,6 @@ class GlottiaRegister extends HTMLElement {
           color: #379683;
         }
         
-        /* Validación visual */
         .input-error {
           border-color: #e74c3c;
           box-shadow: 0 0 0 2px rgba(231, 76, 60, 0.2);
@@ -223,7 +236,6 @@ class GlottiaRegister extends HTMLElement {
           font-family: "Raleway", sans-serif;
         }
         
-        /* Responsive */
         @media (max-width: 480px) {
           :host {
             padding: 1rem 0;
@@ -246,7 +258,6 @@ class GlottiaRegister extends HTMLElement {
       </style>
 
       <main class="registro-container">
-        <!-- Indicador de progreso -->
         <div class="progress-indicator">
           <div class="progress-step active"></div>
           <div class="progress-step"></div>
@@ -285,10 +296,12 @@ class GlottiaRegister extends HTMLElement {
 
           <div class="botones">
             <button type="button" class="btn-volver" id="btnVolver">Volver a Iniciar Sesión</button>
-            <button type="submit" class="btn-registro">Continuar</button>
+            <button type="submit" class="btn-registro" id="btnRegistro">Continuar</button>
           </div>
         </form>
+        
         <div id="mensajeConfirmacion" class="oculto">✅ ¡Información guardada! Continuando...</div>
+        <div id="mensajeError" class="oculto"></div>
       </main>
     `;
 
@@ -300,13 +313,7 @@ class GlottiaRegister extends HTMLElement {
     this.shadowRoot.getElementById("registroForm").addEventListener("submit", (e) => {
       e.preventDefault();
       if (this.validateForm()) {
-        this.showSuccessMessage();
-        // Guardar datos en localStorage para el siguiente paso
-        this.saveUserData();
-        setTimeout(() => {
-          // Redirigir a preferencias
-          window.location.href = "preferencias-register.html";
-        }, 1500);
+        this.processRegistration();
       }
     });
 
@@ -347,18 +354,42 @@ class GlottiaRegister extends HTMLElement {
     });
   }
 
-  saveUserData() {
-    const userData = {
-      nombres: this.shadowRoot.getElementById("nombres").value,
-      apellidos: this.shadowRoot.getElementById("apellidos").value,
-      email: this.shadowRoot.getElementById("email").value,
-      password: this.shadowRoot.getElementById("password").value
-    };
+  async processRegistration() {
+    const btnRegistro = this.shadowRoot.getElementById("btnRegistro");
+    const mensajeError = this.shadowRoot.getElementById("mensajeError");
     
-    localStorage.setItem('glottia_user_registration', JSON.stringify(userData));
+    try {
+      btnRegistro.disabled = true;
+      btnRegistro.textContent = "Procesando...";
+      
+      // Ocultar mensajes previos
+      mensajeError.classList.add("oculto");
+      
+      // Recopilar datos del formulario
+      const userData = {
+        nombres: this.shadowRoot.getElementById("nombres").value.trim(),
+        apellidos: this.shadowRoot.getElementById("apellidos").value.trim(),
+        email: this.shadowRoot.getElementById("email").value.trim(),
+        password: this.shadowRoot.getElementById("password").value
+      };
+      
+      // Guardar temporalmente para el siguiente paso
+      localStorage.setItem('glottia_temp_registration', JSON.stringify(userData));
+      
+      this.showSuccessMessage();
+      
+      setTimeout(() => {
+        window.location.href = "preferencias-register.html";
+      }, 1500);
+      
+    } catch (error) {
+      mensajeError.textContent = error.message;
+      mensajeError.classList.remove("oculto");
+      btnRegistro.disabled = false;
+      btnRegistro.textContent = "Continuar";
+    }
   }
 
-  // ...existing validation methods...
   validateForm() {
     let isValid = true;
     

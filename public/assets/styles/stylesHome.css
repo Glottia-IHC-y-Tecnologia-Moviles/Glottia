@@ -42,7 +42,7 @@ grupos-widget {
 .calendar-section {
   grid-column: 1;
   grid-row: 1;
-  height: 500px; /* Altura fija igual */
+  height: 600px; /* Altura fija igual */
   display: flex;
   flex-direction: column;
 }
@@ -50,7 +50,7 @@ grupos-widget {
 .events-section {
   grid-column: 2;
   grid-row: 1;
-  height: 500px; /* Misma altura fija */
+  height: 600px; /* Misma altura fija */
   overflow: hidden;
   display: flex;
   flex-direction: column;
