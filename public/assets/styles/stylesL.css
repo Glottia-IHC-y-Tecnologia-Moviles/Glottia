@@ -295,3 +295,23 @@ input[type="password"]{
     list-style-type: none;
 }
 
+.register-link {
+  text-align: center;
+  margin-top: 1rem;
+}
+
+.register-link p {
+  color: #666;
+  font-size: 0.9rem;
+}
+
+.register-btn {
+  color: #379683;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.register-btn:hover {
+  color: #FF8B94;
+  text-decoration: underline;
+}
