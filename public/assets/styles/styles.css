@@ -145,6 +145,77 @@
     color: white;
 }
 
+/* Hamburguesa */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 48px;
+  height: 48px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  margin-left: 10px;
+  z-index: 1100;
+}
+.hamburger .bar {
+  width: 30px;
+  height: 4px;
+  background-color: #fff;
+  margin: 4px 0;
+  border-radius: 2px;
+  transition: 0.3s;
+}
+
+@media (max-width: 900px) {
+  .hamburger {
+    display: flex;
+  }
+  .menu-horizontal {
+    position: fixed;
+    top: 90px;
+    right: 0;
+    left: 0;
+    background: #FF8B94;
+    flex-direction: column;
+    align-items: center;
+    width: 100vw;
+    max-width: 100vw;
+    height: 0;
+    overflow: hidden;
+    transition: height 0.3s;
+    z-index: 1001;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+    padding: 0;
+  }
+  .menu-horizontal.open {
+    height: 420px;
+    overflow-y: auto;
+    padding-bottom: 20px;
+  }
+  .menu-horizontal li {
+    width: 100%;
+    text-align: center;
+    margin: 0;
+  }
+  .menu-horizontal li a, .menu-horizontal li button {
+    width: 100%;
+    justify-content: center;
+    padding: 18px 0;
+    font-size: 20px;
+  }
+  .menu-vertical {
+    position: static;
+    width: 100%;
+    background: #fff;
+    box-shadow: none;
+  }
+  .menu-horizontal li:hover .menu-vertical {
+    display: block;
+  }
+}
+
 /* Imagen de Presentacion*/
 .container-presentacion{
     background-image: url("../images/Main.png");
@@ -551,6 +622,181 @@
 }
 .footer-column h3:hover{
     cursor:pointer;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .container-cards {
+    flex-direction: column;
+    align-items: center;
+  }
+  .card {
+    width: 90%;
+    margin: 30px 0;
+  }
+  .form-wrapper {
+    flex-direction: column;
+    gap: 40px;
+  }
+  .footer-container {
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+}
+
+@media (max-width: 768px) {
+  .topheader {
+    flex-direction: column;
+    height: auto;
+    padding: 10px 0;
+  }
+  .menu-horizontal {
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    font-size: 18px;
+  }
+  .menu-horizontal li {
+    width: 100%;
+    text-align: center;
+  }
+  .container-presentacion {
+    height: 300px;
+    padding-bottom: 30px;
+  }
+  .container-presentacion h1 {
+    font-size: 28px;
+  }
+  .Conversacional-Tarjeta h2,
+  .Info-Seccion h2,
+  .Testimonios-Seccion h2 {
+    font-size: 32px;
+  }
+  .Conversacional-Tarjeta p {
+    font-size: 18px;
+  }
+  .Info-Seccion img {
+    display: none;
+  }
+  .container-info {
+    flex-direction: column;
+    align-items: center;
+  }
+  .review-card {
+    width: 90vw;
+    margin-left: 0;
+  }
+  .container-reviews {
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+  }
+  .Register-Section {
+    height: auto;
+    padding: 20px 5px;
+  }
+  .form-wrapper {
+    flex-direction: column;
+    gap: 20px;
+    padding: 0 5px;
+  }
+  .form-container {
+    width: 100%;
+    min-width: 0;
+    padding: 10px 5px;
+    box-sizing: border-box;
+    margin: 0 auto;
+  }
+  .register-title {
+    font-size: 20px;
+    text-align: center;
+    padding: 0 5px;
+  }
+  .form-group, .form-group-check {
+    margin-bottom: 14px;
+  }
+  .form-container input, .form-container select {
+    font-size: 15px;
+    padding: 8px;
+  }
+  .button-group {
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 18px;
+  }
+  .btn {
+    width: 100%;
+    font-size: 16px;
+  }
+  .footer-container {
+    flex-direction: column;
+    align-items: center;
+  }
+  .footer-column, .footer-column-img {
+    width: 100%;
+    text-align: center;
+    margin-top: 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  .container-presentacion {
+    height: 180px;
+    padding-bottom: 10px;
+  }
+  .container-presentacion h1 {
+    font-size: 18px;
+    padding: 0 5px;
+  }
+  .unetebtn {
+    font-size: 16px;
+    padding: 10px;
+  }
+  .card {
+    width: 98vw;
+    margin: 15px 0;
+  }
+  .card img {
+    height: 120px;
+  }
+  .form-wrapper h2, .register-title {
+    font-size: 18px;
+    padding-bottom: 8px;
+    padding-left: 2px;
+    padding-right: 2px;
+  }
+  .form-container {
+    padding: 4px;
+    width: 100%;
+    min-width: 0;
+    box-sizing: border-box;
+  }
+  .form-group, .form-group-check {
+    margin-bottom: 10px;
+  }
+  .form-container input, .form-container select {
+    font-size: 14px;
+    padding: 7px;
+  }
+  .button-group {
+    flex-direction: column;
+    gap: 8px;
+    margin-top: 10px;
+  }
+  .btn {
+    width: 100%;
+    font-size: 15px;
+  }
+  .footer-section img {
+    width: 120px !important;
+    height: 40px !important;
+  }
+  .mostrar-ayuda {
+    right: 10px;
+    bottom: 10px;
+    padding: 10px 14px;
+    font-size: 13px;
+  }
 }
 
 /*Estilos ayuda*/
