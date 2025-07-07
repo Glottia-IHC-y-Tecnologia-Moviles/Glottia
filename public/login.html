@@ -13,7 +13,12 @@
     <a href="index.html" class="logo">
         <img height="80" width="80" src="./assets/images/LogoBlanco.png" alt="" />
     </a>
-    <ul class="menu-horizontal">
+    <button class="hamburger" id="hamburgerBtn" aria-label="Abrir menú" aria-expanded="false" aria-controls="mainMenu">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+    </button>
+    <ul class="menu-horizontal" id="mainMenu">
         <li><a href="index.html"> Eventos Proximos</a></li>
         <li><a href="index.html#nosotros"> Nosotros </a></li>
         <li>
@@ -120,5 +125,26 @@
 <!-- Cargar scripts necesarios -->
 <script src="./data/user.js"></script>
 <script src="./assets/scripts/login.js"></script>
+<script>
+// Hamburguesa responsive
+const hamburgerBtn = document.getElementById('hamburgerBtn');
+const mainMenu = document.getElementById('mainMenu');
+if (hamburgerBtn && mainMenu) {
+  hamburgerBtn.addEventListener('click', function() {
+    mainMenu.classList.toggle('open');
+    const expanded = hamburgerBtn.getAttribute('aria-expanded') === 'true';
+    hamburgerBtn.setAttribute('aria-expanded', !expanded);
+  });
+  // Cierra menú al hacer click en un enlace
+  mainMenu.querySelectorAll('a, button').forEach(function(el) {
+    el.addEventListener('click', function() {
+      if (window.innerWidth <= 900) {
+        mainMenu.classList.remove('open');
+        hamburgerBtn.setAttribute('aria-expanded', 'false');
+      }
+    });
+  });
+}
+</script>
 </body>
 </html>

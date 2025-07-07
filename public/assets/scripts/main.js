@@ -48,10 +48,63 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     });
 
-    // Menú hamburguesa (si lo tienes)
-    const menuIcon = document.querySelector('.icono-menu');
-    if (menuIcon) {
-        menuIcon.addEventListener('click', () => console.log('Menú toggled'));
+    // Menú hamburguesa dinámico solo en responsive
+    const nav = document.querySelector('.topheader');
+    const menu = nav ? nav.querySelector('ul.menu-horizontal') : null;
+    let hamburgerBtn = null;
+
+    function createHamburger() {
+        if (hamburgerBtn) return;
+        hamburgerBtn = document.createElement('button');
+        hamburgerBtn.className = 'hamburger';
+        hamburgerBtn.setAttribute('aria-label', 'Abrir menú');
+        hamburgerBtn.setAttribute('aria-expanded', 'false');
+        hamburgerBtn.setAttribute('type', 'button');
+        hamburgerBtn.innerHTML = '<span class="bar"></span><span class="bar"></span><span class="bar"></span>';
+        // Posiciona el botón hamburguesa a la derecha del nav
+        hamburgerBtn.style.marginLeft = 'auto';
+        hamburgerBtn.style.order = '2';
+        // Asegura que el nav sea flex
+        nav.style.display = 'flex';
+        nav.style.alignItems = 'center';
+        nav.style.justifyContent = 'space-between';
+        // Inserta el botón después del menú (al final del nav)
+        nav.appendChild(hamburgerBtn);
+
+        hamburgerBtn.addEventListener('click', function () {
+            menu.classList.toggle('open');
+            const expanded = hamburgerBtn.getAttribute('aria-expanded') === 'true';
+            hamburgerBtn.setAttribute('aria-expanded', !expanded);
+        });
+        // Cierra el menú al hacer click en un enlace o botón
+        menu.querySelectorAll('a, button').forEach(function (el) {
+            el.addEventListener('click', function () {
+                if (window.innerWidth <= 900) {
+                    menu.classList.remove('open');
+                    hamburgerBtn.setAttribute('aria-expanded', 'false');
+                }
+            });
+        });
     }
+
+    function removeHamburger() {
+        if (hamburgerBtn) {
+            hamburgerBtn.remove();
+            hamburgerBtn = null;
+            if (menu) menu.classList.remove('open');
+        }
+    }
+
+    function handleResponsiveMenu() {
+        if (!nav || !menu) return;
+        if (window.innerWidth <= 900) {
+            createHamburger();
+        } else {
+            removeHamburger();
+        }
+    }
+
+    window.addEventListener('resize', handleResponsiveMenu);
+    handleResponsiveMenu();
 });
 

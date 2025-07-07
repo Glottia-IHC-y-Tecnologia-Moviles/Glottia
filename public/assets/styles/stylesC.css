@@ -1,3 +1,61 @@
+/* Footer igual que stylesL.css */
+.footer-section {
+  background-color: #FF8B94;
+  color: #ffffff;
+  padding: 5px 0;
+  font-weight: bold;
+  width: 100vw;
+  box-sizing: border-box;
+}
+.footer-section img {
+  border-radius: 50px;
+}
+.footer-container {
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-start;
+  margin-bottom: 10px;
+  width: 100vw;
+  box-sizing: border-box;
+  max-width: 100vw;
+}
+.footer-column {
+  width: 10%;
+  min-width: 90px;
+  margin-top: 30px;
+  text-align: center;
+}
+.footer-column h3 {
+  font-size: 1.2rem;
+  margin-bottom: 0px;
+  padding-bottom: 0px;
+  font-family: "Raleway", sans-serif;
+}
+.footer-column-img {
+  width: 10%;
+  min-width: 120px;
+  margin-top: 10px;
+  cursor: pointer;
+  text-align: center;
+}
+.footer-column ul {
+  list-style-type: none;
+}
+@media (max-width: 900px) {
+  .footer-container {
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    width: 100vw;
+    max-width: 100vw;
+  }
+  .footer-column, .footer-column-img {
+    width: 100%;
+    min-width: 0;
+    text-align: center;
+    margin-top: 10px;
+  }
+}
 .container{
     background-image: url("/public/assets/images/background.png");
 }
@@ -71,7 +129,11 @@ form select,
 form textarea {
     display: block;
     margin-bottom: 16px;
-    width: 650px;
+    width: 100%;
+    max-width: 500px;
+    box-sizing: border-box;
+    margin-left: auto;
+    margin-right: auto;
 }
 textarea{
     resize: vertical;
@@ -90,18 +152,25 @@ form input,form select, form textarea {
     font-family: "Raleway", sans-serif;
     border-radius: 5px;
     border-color: #c2bbbb;
-    width: 650px;
+    width: 100%;
+    max-width: 500px;
     font-size: 16px;
+    box-sizing: border-box;
 }
 
+
 .imagePreview {
-    width: 100px;
-    height: 100px;
+    width: 300px;
+    height: 300px;
     background-color: #f0f0f0;
     border: 2px dashed #aaa;
     background-size: cover;
     background-position: center;
     transition: background-image 0.3s ease;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .imagen{
@@ -168,6 +237,71 @@ form input,form select, form textarea {
     justify-content: space-between;
     gap: 30px;
     margin-bottom: 10px;
+}
+
+@media (max-width: 900px) {
+  .containerCreate {
+    max-width: 98vw;
+    padding: 20px 5vw;
+    margin: 10px auto;
+    flex-direction: column;
+    align-items: center;
+  }
+  .Create h2 {
+    font-size: 32px;
+  }
+  .form-row {
+    flex-direction: column;
+    gap: 10px;
+  }
+  form input,
+  form select,
+  form textarea {
+    max-width: 100%;
+    width: 100%;
+    font-size: 15px;
+  }
+  .moduleCreate, .form-row .moduleCreate, .form-row .form-group {
+    min-width: 0;
+    width: 100%;
+    margin: 0 0 10px 0;
+  }
+  .imagePreview {
+    width: 220px;
+    height: 220px;
+    max-width: 90vw;
+    max-height: 60vw;
+    margin: 0 auto;
+  }
+  .formButtons {
+    flex-direction: column;
+    gap: 10px;
+  }
+}
+
+@media (max-width: 600px) {
+  .containerCreate {
+    padding: 10px 2vw;
+  }
+  .Create {
+    padding: 10px 0;
+  }
+  .Create h2 {
+    font-size: 22px;
+    margin-bottom: 10px;
+  }
+  form input,
+  form select,
+  form textarea {
+    font-size: 14px;
+    padding: 8px;
+  }
+  .imagePreview {
+    width: 120px;
+    height: 120px;
+    max-width: 90vw;
+    max-height: 50vw;
+  }
 }
 
 /* Corregir ancho de los campos en filas */
