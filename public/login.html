@@ -51,7 +51,7 @@
         <h2 class="sign-title">Iniciar Sesión</h2>
         <div class="form-container">
             <form class="sign-form" id="loginForm">
-                <div class="image">
+                <div class="image" style="display: flex; justify-content: center; align-items: center; width: 100%;">
                     <img height="80" width="80" src="./assets/images/LogoBlanco.png" alt="" />
                 </div>
                 <div class="info">
@@ -64,6 +64,17 @@
                     <input type="password" id="password" placeholder="Contraseña" required>
                 </div>
 
+                                    <!-- Redes sociales debajo de la contraseña -->
+                    <div class="social-login" style="display: flex; flex-direction: column; align-items: center; gap: 10px; margin: 15px 0;">
+                        <div style="display: flex; gap: 20px;">
+                            <a href="#" title="Iniciar sesión con Google">
+                                <img src="./assets/images/google.png" alt="Google" style="height:40px;width:40px;object-fit:contain;">
+                            </a>
+                            <a href="#" title="Iniciar sesión con Facebook">
+                                <img src="./assets/images/facebook.png" alt="Facebook" style="height:40px;width:40px;object-fit:contain;">
+                            </a>
+                        </div>
+                    </div>
                 <div class="form-remember">
                     <div class="form-group remember">
                         <label class="custom-radio">

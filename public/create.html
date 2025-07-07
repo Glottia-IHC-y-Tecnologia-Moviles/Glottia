@@ -122,6 +122,8 @@
                         <div class="imagePreview" id="preview"></div>
                     </div>
                 </div>
+                <!-- Mensaje de error -->
+                <div id="errorMessage" style="display: none; background-color: #fee; color: #c53030; padding: 1rem; border-radius: 6px; margin: 10px 0; text-align: center;"></div>
                 <div class="formButtons">
                     <button type="button" class="btnCancel" onclick="window.location.href='./home.html'">Cancelar</button>
                     <button type="submit" class="btnCreate">Crear Reunión</button>
@@ -158,5 +160,51 @@
 </footer>
 
 <script src="./assets/scripts/create.js"></script>
+<script>
+// Validación y mensaje de error similar a otros index
+const form = document.getElementById('formReunion');
+const errorMessage = document.getElementById('errorMessage');
+if (form && errorMessage) {
+  form.addEventListener('submit', function(e) {
+    let valid = true;
+    let msg = '';
+    // Validaciones básicas
+    if (!form.nombreReunion.value.trim()) {
+      valid = false;
+      msg = 'Por favor, ingresa el nombre de la reunión.';
+    } else if (!form.desc.value.trim()) {
+      valid = false;
+      msg = 'Por favor, ingresa una descripción.';
+    } else if (!form.idioma.value) {
+      valid = false;
+      msg = 'Selecciona un idioma.';
+    } else if (!form.modalidad.value) {
+      valid = false;
+      msg = 'Selecciona la modalidad de la reunión.';
+    } else if (!form.lugar.value.trim()) {
+      valid = false;
+      msg = 'Indica el lugar de encuentro.';
+    } else if (!form.fechaHora.value) {
+      valid = false;
+      msg = 'Selecciona la fecha y hora.';
+    } else if (!form.limite.value || form.limite.value < 1) {
+      valid = false;
+      msg = 'Indica el límite de participantes.';
+    } else if (!form.levelIdiom.value) {
+      valid = false;
+      msg = 'Selecciona el nivel del idioma.';
+    }
+    if (!valid) {
+      e.preventDefault();
+      errorMessage.textContent = msg;
+      errorMessage.style.display = 'block';
+      setTimeout(() => { errorMessage.style.display = 'none'; }, 3500);
+    } else {
+      // Si el formulario es válido, no mostrar ningún mensaje flotante ni modal
+      errorMessage.style.display = 'none';
+    }
+  });
+}
+</script>
 </body>
 </html>

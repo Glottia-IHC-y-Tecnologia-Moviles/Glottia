@@ -37,13 +37,12 @@ formReunion.addEventListener("submit", (event) => {
         !nivel
     ) {
         event.preventDefault();
-        alert("Se tiene que completar todos los campos requeridos.");
         return;
     }
 
     // Si todo está bien
     event.preventDefault();
-    alert("Se creo la reunión correctamente.");
+
     formReunion.reset();
     limpiarImagen();
 
@@ -65,12 +64,23 @@ const presencialCheckbox = document.getElementById("presencial");
 const seccionLugar = document.getElementById("seccionLugar");
 
 function actualizarLugar() {
+    const inputLugar = document.getElementById("lugar");
     if (virtualCheckbox.checked && !presencialCheckbox.checked) {
-        // Solo virtual está marcado → ocultar
-        seccionLugar.style.display = "none";
-    } else {
-        // Presencial está marcado (o ambos) → mostrar
+        // Solo virtual está marcado → mostrar y autocompletar
         seccionLugar.style.display = "block";
+        if (inputLugar) {
+            inputLugar.value = "Reunión virtual";
+            inputLugar.readOnly = true;
+            inputLugar.style.background = "#f5f5f5";
+        }
+    } else {
+        // Presencial está marcado (o ambos) → mostrar editable
+        seccionLugar.style.display = "block";
+        if (inputLugar) {
+            inputLugar.value = "";
+            inputLugar.readOnly = false;
+            inputLugar.style.background = "";
+        }
     }
 }
 
