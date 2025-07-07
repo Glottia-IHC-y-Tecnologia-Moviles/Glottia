@@ -433,45 +433,123 @@ class CalendarioWidget extends HTMLElement {
     this.renderCalendar();
   }
 
-  generateSampleEvents() {
-    const events = [];
-    const today = new Date();
+generateSampleEvents() {
+  const events = [];
+  const baseDate = new Date(2025, 6, 7); // 7 de julio de 2025 (mes 6 = julio)
+  
+  // Eventos sincronizados con reunion-list
+  const reunionEvents = [
+    { 
+      id: 1,
+      title: "English Conversation",
+      subtitle: "Travel Stories & Adventures",
+      time: "14:00",
+      dayOffset: 0, // 7 de julio
+      language: "Inglés",
+      difficulty: "Intermedio"
+    },
+    {
+      id: 2,
+      title: "Club de Lecture Française",
+      subtitle: "Le Petit Prince - Chapitre 3",
+      time: "16:30",
+      dayOffset: 1, // 8 de julio
+      language: "Francés",
+      difficulty: "Avanzado"
+    },
+    {
+      id: 3,
+      title: "Business German",
+      subtitle: "Professional Networking",
+      time: "19:00",
+      dayOffset: 2, // 9 de julio
+      language: "Alemán",
+      difficulty: "Avanzado"
+    },
+    {
+      id: 4,
+      title: "Cucina e Cultura Italiana",
+      subtitle: "Ricette della Nonna",
+      time: "18:00",
+      dayOffset: 3, // 10 de julio
+      language: "Italiano",
+      difficulty: "Básico"
+    },
+    {
+      id: 5,
+      title: "Advanced English Debate",
+      subtitle: "Current Global Issues",
+      time: "20:00",
+      dayOffset: 4, // 11 de julio
+      language: "Inglés",
+      difficulty: "Avanzado"
+    },
+    {
+      id: 6,
+      title: "Français pour Débutants",
+      subtitle: "Premiers Pas en Français",
+      time: "15:00",
+      dayOffset: 5, // 12 de julio
+      language: "Francés",
+      difficulty: "Básico"
+    },
+    {
+      id: 7,
+      title: "Português Brasileiro",
+      subtitle: "Cultura e Tradições",
+      time: "17:00",
+      dayOffset: 6, // 13 de julio
+      language: "Portugués",
+      difficulty: "Intermedio"
+    },
+    {
+      id: 8,
+      title: "日本語 Anime Club",
+      subtitle: "One Piece ワンピース",
+      time: "19:30",
+      dayOffset: 7, // 14 de julio
+      language: "Japonés",
+      difficulty: "Intermedio"
+    }
+  ];
+
+  // Convertir a eventos del calendario
+  reunionEvents.forEach(eventData => {
+    const eventDate = new Date(baseDate);
+    eventDate.setDate(baseDate.getDate() + eventData.dayOffset);
     
-    // Generar eventos para varios meses
-    const eventsData = [
-      { day: 7, title: "Conversación en Inglés", time: "14:00" },
-      { day: 12, title: "Club de Francés", time: "16:30" },
-      { day: 18, title: "Alemán de Negocios", time: "19:00" },
-      { day: 23, title: "Italiano Cultural", time: "18:00" },
-      { day: 28, title: "Japonés Anime", time: "20:00" },
-      { day: 15, title: "Intercambio de Idiomas", time: "17:00" },
-      { day: 20, title: "Pronunciación en Inglés", time: "15:30" },
-      { day: 25, title: "Cultura Española", time: "19:30" }
-    ];
-    
-    // Eventos para el mes actual
-    eventsData.forEach(eventData => {
-      const eventDate = new Date(today.getFullYear(), today.getMonth(), eventData.day);
-      if (eventData.day <= new Date(today.getFullYear(), today.getMonth() + 1, 0).getDate()) {
-        events.push({
-          date: eventDate,
-          title: eventData.title,
-          time: eventData.time
-        });
-      }
+    events.push({
+      id: eventData.id,
+      date: eventDate,
+      title: eventData.title,
+      subtitle: eventData.subtitle,
+      time: eventData.time,
+      language: eventData.language,
+      difficulty: eventData.difficulty,
+      type: 'reunion'
     });
-    
-    // Algunos eventos para el mes siguiente
-    const nextMonth = new Date(today.getFullYear(), today.getMonth() + 1, 1);
-    [5, 10, 15, 22].forEach(day => {
-      const eventDate = new Date(nextMonth.getFullYear(), nextMonth.getMonth(), day);
-      events.push({
-        date: eventDate,
-        title: `Evento ${day}/${nextMonth.getMonth() + 1}`,
-        time: "18:00"
-      });
+  });
+
+  // Eventos adicionales distribuidos en el mes
+  const additionalEvents = [
+    { day: 15, title: "Intercambio de Idiomas", time: "17:00", language: "Múltiple" },
+    { day: 18, title: "Pronunciation Workshop", time: "15:30", language: "Inglés" },
+    { day: 21, title: "Cultura Española", time: "19:30", language: "Español" },
+    { day: 25, title: "Korean Study Group", time: "18:00", language: "Coreano" },
+    { day: 28, title: "Russian Literature", time: "20:00", language: "Ruso" }
+  ];
+
+  additionalEvents.forEach(eventData => {
+    const eventDate = new Date(2025, 6, eventData.day); // julio 2025
+    events.push({
+      date: eventDate,
+      title: eventData.title,
+      time: eventData.time,
+      language: eventData.language,
+      type: 'additional'
     });
-    
+  });
+
     return events;
   }
 
