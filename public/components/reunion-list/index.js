@@ -435,141 +435,151 @@ class ReunionList extends HTMLElement {
     this.renderEventos();
   }
 
-  generateSampleEvents() {
-    const now = new Date();
-    const today = new Date().toISOString().split('T')[0];
+ generateSampleEvents() {
+  const baseDate = new Date(2025, 6, 7); // 7 de julio de 2025
+  
+  const eventsData = [
+    {
+      id: 1,
+      title: "English Conversation",
+      subtitle: "Travel Stories & Adventures",
+      language: "Inglés",
+      difficulty: "Intermedio",
+      dayOffset: 0, // 7 de julio
+      time: "14:00",
+      duration: "1 hora",
+      description: "Comparte tus experiencias de viaje más emocionantes y practica vocabulario turístico en inglés.",
+      participants: 6,
+      maxParticipants: 8,
+      joined: false,
+      status: "upcoming",
+      organizer: "Sarah Johnson"
+    },
+    {
+      id: 2,
+      title: "Club de Lecture Française",
+      subtitle: "Le Petit Prince - Chapitre 3",
+      language: "Francés",
+      difficulty: "Avanzado",
+      dayOffset: 1, // 8 de julio
+      time: "16:30",
+      duration: "1.5 horas",
+      description: "Análisis profundo del capítulo 3 de Le Petit Prince y práctica de pronunciación francesa avanzada.",
+      participants: 4,
+      maxParticipants: 6,
+      joined: true,
+      status: "upcoming",
+      organizer: "Marie Dubois"
+    },
+    {
+      id: 3,
+      title: "Business German",
+      subtitle: "Professional Networking",
+      language: "Alemán",
+      difficulty: "Avanzado",
+      dayOffset: 2, // 9 de julio
+      time: "19:00",
+      duration: "45 min",
+      description: "Simulación de situaciones empresariales reales en alemán para profesionales.",
+      participants: 8,
+      maxParticipants: 10,
+      joined: false,
+      status: "live",
+      organizer: "Klaus Weber"
+    },
+    {
+      id: 4,
+      title: "Cucina e Cultura Italiana",
+      subtitle: "Ricette della Nonna",
+      language: "Italiano",
+      difficulty: "Básico",
+      dayOffset: 3, // 10 de julio
+      time: "18:00",
+      duration: "2 horas",
+      description: "Aprende italiano explorando recetas tradicionales y la rica cultura gastronómica italiana.",
+      participants: 12,
+      maxParticipants: 15,
+      joined: false,
+      status: "upcoming",
+      organizer: "Giuseppe Romano"
+    },
+    {
+      id: 5,
+      title: "Advanced English Debate",
+      subtitle: "Current Global Issues",
+      language: "Inglés",
+      difficulty: "Avanzado",
+      dayOffset: 4, // 11 de julio
+      time: "20:00",
+      duration: "1 hora",
+      description: "Debates estructurados sobre temas de actualidad mundial para nivel C1-C2.",
+      participants: 5,
+      maxParticipants: 8,
+      joined: true,
+      status: "upcoming",
+      organizer: "Michael Thompson"
+    },
+    {
+      id: 6,
+      title: "Français pour Débutants",
+      subtitle: "Premiers Pas en Français",
+      language: "Francés",
+      difficulty: "Básico",
+      dayOffset: 5, // 12 de julio
+      time: "15:00",
+      duration: "1 hora",
+      description: "Introducción completa al francés para principiantes absolutos con ejercicios prácticos.",
+      participants: 15,
+      maxParticipants: 20,
+      joined: false,
+      status: "upcoming",
+      organizer: "Camille Laurent"
+    },
+    {
+      id: 7,
+      title: "Português Brasileiro",
+      subtitle: "Cultura e Tradições",
+      language: "Portugués",
+      difficulty: "Intermedio",
+      dayOffset: 6, // 13 de julio
+      time: "17:00",
+      duration: "1.5 horas",
+      description: "Explora la diversa cultura brasileña mientras perfeccionas tu portugués.",
+      participants: 7,
+      maxParticipants: 12,
+      joined: false,
+      status: "upcoming",
+      organizer: "Ana Silva"
+    },
+    {
+      id: 8,
+      title: "日本語 Anime Club",
+      subtitle: "One Piece ワンピース",
+      language: "Japonés",
+      difficulty: "Intermedio",
+      dayOffset: 7, // 14 de julio
+      time: "19:30",
+      duration: "1 hora",
+      description: "Aprende japonés través del análisis de episodios de One Piece y cultura otaku.",
+      participants: 10,
+      maxParticipants: 12,
+      joined: false,
+      status: "upcoming",
+      organizer: "Takeshi Yamamoto"
+    }
+  ];
+
+  // Convertir dayOffset a fechas reales
+  return eventsData.map(eventData => {
+    const eventDate = new Date(baseDate);
+    eventDate.setDate(baseDate.getDate() + eventData.dayOffset);
     
-    return [
-      {
-        id: 1,
-        title: "English Conversation",
-        subtitle: "Travel Stories & Adventures",
-        language: "Inglés",
-        difficulty: "Intermedio",
-        date: today,
-        time: "14:00",
-        duration: "1 hora",
-        description: "Comparte tus experiencias de viaje más emocionantes y practica vocabulario turístico en inglés.",
-        participants: 6,
-        maxParticipants: 8,
-        joined: false,
-        status: "upcoming",
-        organizer: "Sarah Johnson"
-      },
-      {
-        id: 2,
-        title: "Club de Lecture Française",
-        subtitle: "Le Petit Prince - Chapitre 3",
-        language: "Francés",
-        difficulty: "Avanzado",
-        date: "2025-01-08",
-        time: "16:30",
-        duration: "1.5 horas",
-        description: "Análisis profundo del capítulo 3 de Le Petit Prince y práctica de pronunciación francesa avanzada.",
-        participants: 4,
-        maxParticipants: 6,
-        joined: true,
-        status: "upcoming",
-        organizer: "Marie Dubois"
-      },
-      {
-        id: 3,
-        title: "Business German",
-        subtitle: "Professional Networking",
-        language: "Alemán",
-        difficulty: "Avanzado",
-        date: today,
-        time: "19:00",
-        duration: "45 min",
-        description: "Simulación de situaciones empresariales reales en alemán para profesionales.",
-        participants: 8,
-        maxParticipants: 10,
-        joined: false,
-        status: "live",
-        organizer: "Klaus Weber"
-      },
-      {
-        id: 4,
-        title: "Cucina e Cultura Italiana",
-        subtitle: "Ricette della Nonna",
-        language: "Italiano",
-        difficulty: "Básico",
-        date: "2025-01-10",
-        time: "18:00",
-        duration: "2 horas",
-        description: "Aprende italiano explorando recetas tradicionales y la rica cultura gastronómica italiana.",
-        participants: 12,
-        maxParticipants: 15,
-        joined: false,
-        status: "upcoming",
-        organizer: "Giuseppe Romano"
-      },
-      {
-        id: 5,
-        title: "Advanced English Debate",
-        subtitle: "Current Global Issues",
-        language: "Inglés",
-        difficulty: "Avanzado",
-        date: "2025-01-11",
-        time: "20:00",
-        duration: "1 hora",
-        description: "Debates estructurados sobre temas de actualidad mundial para nivel C1-C2.",
-        participants: 5,
-        maxParticipants: 8,
-        joined: true,
-        status: "upcoming",
-        organizer: "Michael Thompson"
-      },
-      {
-        id: 6,
-        title: "Français pour Débutants",
-        subtitle: "Premiers Pas en Français",
-        language: "Francés",
-        difficulty: "Básico",
-        date: "2025-01-12",
-        time: "15:00",
-        duration: "1 hora",
-        description: "Introducción completa al francés para principiantes absolutos con ejercicios prácticos.",
-        participants: 15,
-        maxParticipants: 20,
-        joined: false,
-        status: "upcoming",
-        organizer: "Camille Laurent"
-      },
-      {
-        id: 7,
-        title: "Português Brasileiro",
-        subtitle: "Cultura e Tradições",
-        language: "Portugués",
-        difficulty: "Intermedio",
-        date: "2025-01-13",
-        time: "17:00",
-        duration: "1.5 horas",
-        description: "Explora la diversa cultura brasileña mientras perfeccionas tu portugués.",
-        participants: 7,
-        maxParticipants: 12,
-        joined: false,
-        status: "upcoming",
-        organizer: "Ana Silva"
-      },
-      {
-        id: 8,
-        title: "日本語 Anime Club",
-        subtitle: "One Piece ワンピース",
-        language: "Japonés",
-        difficulty: "Intermedio",
-        date: "2025-01-14",
-        time: "19:30",
-        duration: "1 hora",
-        description: "Aprende japonés través del análisis de episodios de One Piece y cultura otaku.",
-        participants: 10,
-        maxParticipants: 12,
-        joined: false,
-        status: "upcoming",
-        organizer: "Takeshi Yamamoto"
-      }
-    ];
-  }
+    return {
+      ...eventData,
+      date: eventDate.toISOString().split('T')[0] // formato YYYY-MM-DD
+    };
+  });
+}
 
   renderEventos() {
     const container = this.shadowRoot.getElementById('reunionList');

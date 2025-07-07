@@ -3,9 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home</title>
+    <title>Home - Glottia</title>
     <link href="assets/styles/stylesHome.css" rel="stylesheet">
     <link href="assets/styles/styles.css" rel="stylesheet">
+    
+    <!-- Cargar UserStorage PRIMERO -->
+    <script src="data/user-storage.js"></script>
+    
+    <!-- Luego cargar los web components -->
     <script type="module" src="components/reunion-list/index.js"></script>
     <script type="module" src="components/calendario-widget/index.js"></script>
     <script type="module" src="components/grupos-widget/index.js"></script>
@@ -14,6 +19,34 @@
         @keyframes slideIn {
             from { transform: translateX(100%); opacity: 0; }
             to { transform: translateX(0); opacity: 1; }
+        }
+        
+        .welcome-section h1 {
+            transition: all 0.5s ease;
+        }
+        
+        .welcome-section p {
+            transition: all 0.5s ease;
+        }
+        
+        .stat-number {
+            transition: all 0.3s ease;
+        }
+        
+        /* Animación de carga para el nombre */
+        .loading-name {
+            background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+            background-size: 200% 100%;
+            animation: loading 1.5s infinite;
+            border-radius: 4px;
+            display: inline-block;
+            height: 1.2em;
+            width: 200px;
+        }
+        
+        @keyframes loading {
+            0% { background-position: 200% 0; }
+            100% { background-position: -200% 0; }
         }
     </style>
 </head>
@@ -44,6 +77,7 @@
                 <a href=""> Perfil</a>
                 <ul class="menu-vertical">
                     <li><a href=""> Edicion de Perfil </a></li>
+                    <li><a href="" data-action="logout"> Cerrar Sesión </a></li>
                 </ul>
             </li>
             <li>
@@ -60,8 +94,8 @@
     <main class="main-content">
         <!-- Welcome Section -->
         <section class="welcome-section">
-            <h1>¡Hola, PIRULIN EL GOAT! 👋</h1>
-            <p>Tienes 3 eventos próximos esta semana. ¡Sigue practicando!</p>
+            <h1><span class="loading-name"></span></h1>
+            <p style="opacity: 0;">Cargando información...</p>
         </section>
 
         <!-- Dashboard Grid -->
@@ -70,7 +104,6 @@
             <section class="calendar-section">
                 <div class="section-header">
                     <h2><i class="fas fa-calendar-alt"></i> Calendario de Eventos</h2>
-                    
                 </div>
                 <div class="calendar" id="calendar">
                     <calendario-widget></calendario-widget>
@@ -110,7 +143,7 @@
                             <i class="fas fa-calendar-check"></i>
                         </div>
                         <div class="stat-info">
-                            <span class="stat-number">24</span>
+                            <span class="stat-number">0</span>
                             <span class="stat-label">Eventos Asistidos</span>
                         </div>
                     </div>
@@ -119,7 +152,7 @@
                             <i class="fas fa-users"></i>
                         </div>
                         <div class="stat-info">
-                            <span class="stat-number">8</span>
+                            <span class="stat-number">0</span>
                             <span class="stat-label">Grupos Activos</span>
                         </div>
                     </div>
@@ -128,7 +161,7 @@
                             <i class="fas fa-trophy"></i>
                         </div>
                         <div class="stat-info">
-                            <span class="stat-number">156</span>
+                            <span class="stat-number">0</span>
                             <span class="stat-label">Puntos Ganados</span>
                         </div>
                     </div>
@@ -152,6 +185,8 @@
         </div>
     </div>
 
+    <!-- Cargar script de home al final -->
+    <script src="assets/scripts/home.js"></script>
     <script src="script.js"></script>
 </body>
 </html>

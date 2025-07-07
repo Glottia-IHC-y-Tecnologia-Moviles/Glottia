@@ -354,41 +354,47 @@ class GlottiaRegister extends HTMLElement {
     });
   }
 
-  async processRegistration() {
-    const btnRegistro = this.shadowRoot.getElementById("btnRegistro");
-    const mensajeError = this.shadowRoot.getElementById("mensajeError");
+async processRegistration() {
+  const btnRegistro = this.shadowRoot.getElementById("btnRegistro");
+  const mensajeError = this.shadowRoot.getElementById("mensajeError");
+  
+  try {
+    btnRegistro.disabled = true;
+    btnRegistro.textContent = "Procesando...";
     
-    try {
-      btnRegistro.disabled = true;
-      btnRegistro.textContent = "Procesando...";
-      
-      // Ocultar mensajes previos
-      mensajeError.classList.add("oculto");
-      
-      // Recopilar datos del formulario
-      const userData = {
-        nombres: this.shadowRoot.getElementById("nombres").value.trim(),
-        apellidos: this.shadowRoot.getElementById("apellidos").value.trim(),
-        email: this.shadowRoot.getElementById("email").value.trim(),
-        password: this.shadowRoot.getElementById("password").value
-      };
-      
-      // Guardar temporalmente para el siguiente paso
-      localStorage.setItem('glottia_temp_registration', JSON.stringify(userData));
-      
-      this.showSuccessMessage();
-      
-      setTimeout(() => {
-        window.location.href = "preferencias-register.html";
-      }, 1500);
-      
-    } catch (error) {
-      mensajeError.textContent = error.message;
-      mensajeError.classList.remove("oculto");
-      btnRegistro.disabled = false;
-      btnRegistro.textContent = "Continuar";
-    }
+    // Ocultar mensajes previos
+    mensajeError.classList.add("oculto");
+    
+    // Recopilar datos del formulario
+    const userData = {
+      nombres: this.shadowRoot.getElementById("nombres").value.trim(),
+      apellidos: this.shadowRoot.getElementById("apellidos").value.trim(),
+      email: this.shadowRoot.getElementById("email").value.trim(),
+      password: this.shadowRoot.getElementById("password").value,
+      createdAt: new Date().toISOString() // Agregar timestamp
+    };
+    
+    // Guardar temporalmente para el siguiente paso
+    localStorage.setItem('glottia_temp_registration', JSON.stringify(userData));
+    
+    // Disparar evento para notificar el cambio
+    window.dispatchEvent(new CustomEvent('userDataUpdated', {
+      detail: userData
+    }));
+    
+    this.showSuccessMessage();
+    
+    setTimeout(() => {
+      window.location.href = "preferencias-register.html";
+    }, 1500);
+    
+  } catch (error) {
+    mensajeError.textContent = error.message;
+    mensajeError.classList.remove("oculto");
+    btnRegistro.disabled = false;
+    btnRegistro.textContent = "Continuar";
   }
+}
 
   validateForm() {
     let isValid = true;
